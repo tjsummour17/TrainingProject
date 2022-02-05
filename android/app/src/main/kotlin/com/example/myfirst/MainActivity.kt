@@ -1,4 +1,4 @@
-package com.tes.traning
+package com.example.myfirst
 
 import io.flutter.embedding.android.FlutterActivity
 
