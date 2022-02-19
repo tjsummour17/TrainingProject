@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:training_project/main.dart';
+import 'package:training_project/models/post.dart';
 import 'package:training_project/views/offer_details.dart';
 import 'package:training_project/views/products_list.dart';
 
@@ -14,6 +16,19 @@ class MainPage extends StatelessWidget {
                 margin: EdgeInsets.only(bottom: 10),
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(15), image: DecorationImage(image: NetworkImage(imageUrl), fit: BoxFit.cover)))));
+  }
+
+  Widget _buildPostContainer({required Post post}) {
+    return Column(
+      children: [
+        AspectRatio(
+            aspectRatio: 16 / 9,
+            child: Container(
+                margin: EdgeInsets.only(bottom: 10),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(15), image: DecorationImage(image: NetworkImage(post.image), fit: BoxFit.cover)))),
+      ],
+    );
   }
 
   @override
@@ -62,13 +77,9 @@ class MainPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 15),
-            _buildImageContainer(
-                imageUrl: "https://media.istockphoto.com/photos/variety-of-nuts-on-white-picture-id153760833?s=612x612",
-                onPressed: () => _onPressOnImage(context, 1)),
-            _buildImageContainer(
-                imageUrl:
-                    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mixe-of-various-nuts-background-above-closeup-royalty-free-image-1570564526.jpg?resize=980:*",
-                onPressed: () => _onPressOnImage(context, 2)),
+
+            for(Post post in posts!)
+              _buildPostContainer(post: post),
           ],
         ));
   }

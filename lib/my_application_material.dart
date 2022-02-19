@@ -3,6 +3,7 @@ import 'package:training_project/views/main_page.dart';
 import 'package:training_project/views/offer_details.dart';
 
 class MyApplicationMaterial extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
